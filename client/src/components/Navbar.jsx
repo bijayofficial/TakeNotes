@@ -1,11 +1,12 @@
 import React from 'react'
 
-const Modal = () => {
+const Navbar = () => {
   return (
     <div>
+        Nav
       
     </div>
   )
 }
 
-export default Modal
+export default Navbar
