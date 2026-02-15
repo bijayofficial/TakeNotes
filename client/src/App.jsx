@@ -1,29 +1,28 @@
-import { BrowserRouter as Router, Routes, Route } from "express";
-import React from "react";
-import Navbar from "./components/Navbar";
-import Home from "./pages/Home";
-
-const App = () => {
+import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar.jsx";
+import Home from "./pages/Home.jsx";
+import About from "./pages/About.jsx";
+import Faq from "./pages/Faq.jsx";
+import Search from "./pages/Search.jsx";
+import Signup from "./pages/Signup.jsx";
+import Login from "./pages/Login.jsx";
+function App() {
   return (
     <>
       <Router>
         <Navbar />
         <Routes>
-          <Route exact path="/" element={<Home/>}></Route>
-          <Route path="/about" element={<Home/>}></Route>
-{/*       <Route path="/faq" element={<Home/>}></Route>
-          <Route path="/profile" element={<Home/>}></Route>
-          <Route path="/login" element={<Home/>}></Route>
-          <Route path="/signup" element={<Home/>}></Route>
-          <Route path="/upload" element={<Home/>}></Route>
-          <Route path="/search" element={<Home/>}></Route> */}
-
-
-
+          <Route exact path="/" element={<Home />}></Route>
+          <Route path="/about" element={<About />}></Route>
+          <Route path="/faq" element={<Faq />}></Route>
+          <Route path="/search" element={<Search />}></Route>
+          <Route path="/register" element={<Signup />}></Route>
+          <Route path="/login" element={<Login />}></Route>
         </Routes>
       </Router>
     </>
   );
-};
+}
 
 export default App;
