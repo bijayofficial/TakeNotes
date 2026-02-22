@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const [form, setForm] = useState({
@@ -10,7 +11,7 @@ const Signup = () => {
     userName: "",
     userPassword: "",
   });
-
+  const navigate = useNavigate();
   const [profileImg, setProfileImg] = useState(null);
   const [preview, setPreview] = useState(null);
 
@@ -45,9 +46,21 @@ const Signup = () => {
         body: data,
       });
 
+      // const result = await res.json();
+      // alert("Signup Successful");
+
       const result = await res.json();
       console.log(result);
-      alert("Signup Successful");
+
+      // 🔥 Important Logic
+
+      if (result.success) {
+        alert("Signup Successful ✅");
+        // Redirect to login page
+        navigate("/login");
+      } else {
+        alert(result.message); // Show backend message
+      }
     } catch (err) {
       console.error(err);
     }
